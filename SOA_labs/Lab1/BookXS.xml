@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<bookstore xmlns="http://www.books.org"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.books.org book.xsd">
+    <book>
+            <Title>My Life and Times</Title>
+            <Author>Paul McCartney</Author>
+            <Date>July, 1998</Date>
+            <ISBN>94303-12021-43892</ISBN>
+            <Publisher>McMillin Publishing</Publisher>
+        </book>        
+</bookstore>
