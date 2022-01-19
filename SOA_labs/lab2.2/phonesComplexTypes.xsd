@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.phones.com"
+            xmlns="http://www.phones.com"
+            elementFormDefault="qualified">
+            <xsd:element name="phones">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="phone" minOccurs="1" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="phone">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="type" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="freeCallCredit" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="currency" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="number" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="provider" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="sold" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element ref="maker" minOccurs="1" maxOccurs="1"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sold">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="profit" minOccurs="1" maxOccurs="1"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="maker">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="name" type="xsd:string"/>
+                        <xsd:element name="location" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="provider">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="Vodafone" />
+                        <xsd:enumeration value="Three" />
+                        <xsd:enumeration value="GoMo"/>
+                        <xsd:enumeration value="Meteor"/>
+                        <xsd:enumeration value="O2"/>
+                   </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="freeCallCredit">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:integer">
+                        <xsd:minInclusive value="10"/>
+                        <xsd:maxInclusive value="20"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="currency">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="Euro"/>
+                        <xsd:enumeration value="USD"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="number">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="08\d-\d{6}">
+                    </xsd:pattern>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+</xsd:schema>
