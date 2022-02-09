@@ -23,20 +23,22 @@ public enum StudentDao {
     
     private Map<Integer, Student> studentsMap = new HashMap<Integer, Student>();
     
+    private static int nextId = 0;
+    
     private StudentDao() {
         Student student = new Student();
-        student.setId(1);
+        student.setId(0);
         student.setName("Joe Bloggs");
         student.setCourse("Software");
         student.setAddress("Athlone");
-        studentsMap.put(1, student);
+        studentsMap.put(0, student);
         
         Student student1 = new Student();
-        student1.setId(2);
+        student1.setId(1);
         student1.setName("Jane Doe");
         student1.setCourse("Mechanical Engineering");
         student1.setAddress("Mullingar");
-        studentsMap.put(2, student1);
+        studentsMap.put(1, student1);
     }
     
     public List<Student> getStudents() {

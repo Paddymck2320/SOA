@@ -63,4 +63,20 @@ public class StudentResource {
         return Response.status(200).entity("Operation Successful").build();
     }
     
+    @PUT
+    @Produces({MediaType.TEXT_HTML})
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("{studentId}")
+    public void putStudent(@FormParam("name") String name,
+            @FormParam("address") String address,
+            @FormParam("course") String course,
+            @Context HttpServletResponse servletResponse) throws IOException {
+        
+                   Student student = new Student();
+                   student.setCourse(course);
+                   student.setName(name);
+                   student.setAddress(address);
+                   StudentDao.instance.create(student);
+                   servletResponse.sendRedirect("../index.html");
+            }
 }

@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 public class Student {
     
+   private static int nextId = 0;
+    
    private int id;
    private String name; 
    private String address; 
@@ -36,7 +38,9 @@ public class Student {
    }
    
    public void setId(int id){
-       this.id = id;
+       this.id = Student.nextId;
+       
+       Student.nextId++;   
    }
    public String getName() {
         return name;
