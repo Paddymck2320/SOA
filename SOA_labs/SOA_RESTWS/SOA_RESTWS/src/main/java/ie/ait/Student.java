@@ -7,38 +7,41 @@ package ie.ait;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-@XmlRootElement(name = "student")
-@XmlType(propOrder = {"id", "name", "address", "course"}) 
 /**
  *
- * @author A00261481
+ * @author a00266219
  */
+
+@XmlRootElement(name="student")
+@XmlType(propOrder = {"id", "name", "address", "course"})
 public class Student {
+    private static int nextId = 0;
     
-   private int id;
-   private String name; 
-   private String address; 
-   private String course;
-   
-   public Student(int id, String name, String address, String course){
-       this.id = id;
-       this.name = name;
-       this.address = address;
-       this.course =  course;
-   }
-   
-   public Student(){
-   }
-   
-   public int getId(){
-       return id;
-   }
-   
-   public void setId(int id){
-       this.id = id;
-   }
-   public String getName() {
+    private int id;
+    private String name;
+    private String address;
+    private String course;
+    
+    public Student (int id, String name, String address, String course) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.course = course;
+    }
+    
+    public Student() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = Student.nextId;
+        Student.nextId++;
+    }
+
+    public String getName() {
         return name;
     }
 
@@ -61,4 +64,6 @@ public class Student {
     public void setCourse(String course) {
         this.course = course;
     }
+    
+    
 }
