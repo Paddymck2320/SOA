@@ -17,7 +17,7 @@ import java.util.*;
  *
  * @author a00266219
  */
-public enum StudentDao {
+public enum StudentDAO_OLD {
     
     instance;
     
@@ -25,7 +25,7 @@ public enum StudentDao {
     
     private static int nextId = 0;
     
-    private StudentDao() {
+    private StudentDAO_OLD() {
         Student student = new Student();
         student.setId(0);
         student.setName("Joe Bloggs");

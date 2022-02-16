@@ -41,7 +41,7 @@ public enum StudentDao {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             
             con = DriverManager.getConnection(
-                    "jdbc.derby://localhost:1527/SOA_DB",
+                    "jdbc:derby://localhost:1527/SOA_DB",
                     "billy",
                     "billy"
             );
@@ -109,11 +109,11 @@ public enum StudentDao {
     public void create(Student student) {
        try
         {
-            PreparedStatement pstmt = con.prepareStatement("insert into student values(null,?,?,?)");
+            PreparedStatement pstmt = con.prepareStatement("insert into student values(1,?,?,?)");
             pstmt.setString(1, student.getName());
             pstmt.setString(2, student.getAddress());
             pstmt.setString(3, student.getCourse());
-            ResultSet rs = pstmt.executeQuery();
+            pstmt.executeUpdate();
             
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -130,5 +130,15 @@ public enum StudentDao {
             ex.printStackTrace();
         }
     }
-            
+    
+    public void update(Student student, int id) {
+        try{
+            PreparedStatement pstmt = con.prepareStatement("update student set name = "+ student.getName() + " ,address = " + student.getAddress() + ", course = " + student.getCourse()+ "where id = "+ id);
+            pstmt.setString(1, student.getName());
+            pstmt.setString(2, student.getAddress());
+            pstmt.setString(3, student.getCourse());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+    }
+  }        
 }
